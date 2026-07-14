@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Janak Foods</title>
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fdf6ec; color: #2b1b17; padding-top: 80px; padding-bottom: 100px; }
+        
+        /* Navbar remains consistent */
+        .navbar { position: fixed; background-color: #f7e7ce; left: 0; top: 0; display: flex; align-items: center; width: 100%; height: 75px; padding: 0 10%; border-bottom: 1px solid rgba(0,0,0,0.05); z-index: 1000; }
+        .navbar-logo { width: 50px; height: 50px; object-fit: contain; }
+        .navbar-links { display: flex; gap: 30px; margin-left: 40px; margin-right: auto; }
+        .navbar-links a { color: #2b1b17; text-decoration: none; font-weight: 600; font-size: 14px; }
+
+        /* CONTENT STYLING */
+        .hero-section { text-align: center; padding: 20px 10%; }
+        .hero-section h1 { font-size: 38px; margin-bottom: 5px; }
+        .hero-section h2 { font-weight: 300; font-size: 20px; color: #8b5a2b; }
+
+        .narrative { max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; }
+        
+        .mission { background-color: #e6d6c3; padding: 40px 10%; text-align: center; margin: 40px 0; }
+        .mission p { font-style: italic; font-size: 1.2em; }
+
+        .our-journey { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .journey-item { margin-bottom: 20px; border-left: 3px solid #8b5a2b; padding-left: 15px; }
+
+        .media-container { text-align: center; margin: 40px 0; }
+        .video { width: 80%; max-width: 600px; border-radius: 12px; }
+
+        /* Geolocation Styling */
+        #demo1 { font-weight: bold; color: #8b5a2b; }
+        .click { background: #2b1b17; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+
+        footer { background-color: #2b1b17; color: #f7e7ce; padding: 20px 10%; position: fixed; bottom: 0; width: 100%; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <img src="Logo.png" alt="Janak" class="navbar-logo">
+        <div class="navbar-links">  
+            <a href="Home.html">HOME</a>
+            <a href="about.html">ABOUT</a>
+            
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <h1>The Janak Foods Story</h1>
+        <h2>Rooted in Amritsar. Growing for your table.</h2>
+    </div>
+
+    <div class="narrative">
+        <h3>A New Standard for Daily Essentials</h3>
+        <p>Established in 2026, Janak Foods was born out of a simple, quiet observation in the heart of Amritsar: the way we shop for our daily needs had lost its soul. We wanted to bring back the feeling of the local market—the reliability of fresh produce, the transparency of knowing where your food comes from, and the ease of modern service.</p>
+    </div>
+
+    <div class="mission">
+        <h4>The Mission</h4>
+        <p>"We believe that fresh, healthy food isn't a luxury—it's a necessity that should be accessible, transparent, and effortlessly delivered to your door."</p>
+    </div>
+
+    <div class="our-journey">
+        <h5>Key Milestones</h5>
+        <div class="journey-item">
+            <b>Early 2026: The Vision</b><br>Founded in Amritsar to simplify regional grocery shopping.
+        </div>
+        <div class="journey-item">
+            <b>Mid 2026: Local Partnerships</b><br>Established direct logistics routes with local farmers.
+        </div>
+        <div class="journey-item">
+            <b>Late 2026: The Community</b><br>Launched express delivery for our neighbors.
+        </div>
+    </div>
+
+    <div class="media-container">
+        <h2>Promotional Highlights</h2>
+        <audio controls><source src="C:\Users\Dell\Desktop\WhatsApp Audio 2026-07-13 at 1.47.34 PM.mpeg"></audio>
+        <br><br>
+        <video controls class="video">
+            <source src="C:\Users\Dell\Desktop\Video_for_promoting_my_Janak_f.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- GEOLOCATION SECTION -->
+    <div style="text-align: center; margin-bottom: 120px;">
+        <p>Find your nearest hub:</p>
+        <button class="click" onclick="getlocation()">Get My Location</button>
+        <p id="demo1"></p>
+    </div>
+
+    <script>
+        function geolocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showLoc);
+            } else {
+                document.getElementById("demo1").innerHTML = "Geolocation not supported.";
+            }
+        }
+
+        function showLoc(pos) {
+        
+            document.getElementById("demo1").innerHTML = 
+                "Latitude: " + pos.coords.latitude + 
+                "<br>Longitude: " + pos.coords.longitude;
+        }
+        // about.html script
+window.addEventListener('load', function() {
+    const milestones = document.querySelectorAll('.journey-item');
+    milestones.forEach((item, index) => {
+        // Simple delay animation using JS
+        item.style.opacity = '0';
+        item.style.transition = 'opacity 1s ease-in';
+        setTimeout(() => {
+            item.style.opacity = '1';
+        }, index * 500); // Staggered reveal
+    });
+});
+    </script>
+        
+    <footer>
+        &copy; 2026 Janak Foods. All rights reserved.
+    </footer>
+
+</body>
+</html>

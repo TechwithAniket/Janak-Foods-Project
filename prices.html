@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janak Foods</title>
+    <style>
+        /* BASE STYLES & TYPOGRAPHY */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdf6ec; /* Warm, premium light cream background */
+            color: #2b1b17;
+            padding-top: 75px; 
+            padding-bottom: 80px; 
+        }
+
+        /* PREMIUM NAVBAR */
+        .navbar {
+            position: fixed;
+            background-color: #f7e7ce; /* Matches the warm header style */
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 75px;
+            padding: 0 10%;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-left: 40px;
+            margin-right: auto;
+        }
+
+        .navbar-links a {
+            color: #2b1b17;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .navbar-links a:hover {
+            color: #8b5a2b;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 220px;
+            height: 38px;
+            padding: 0 15px;
+            border-radius: 20px 0 0 20px;
+            border: 1px solid #dcd1c4;
+            border-right: none;
+            background-color: #fff;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .search-button {
+            height: 38px;
+            padding: 0 20px;
+            border-radius: 0 20px 20px 0;
+            border: 1px solid #dcd1c4;
+            background-color: #2b1b17;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: background 0.2s;
+        }
+
+        .search-button:hover {
+            background-color: #4a322c;
+        }
+
+        /* Table Container */
+.table-container {
+    width: 80%;
+    margin: 40px auto; /* Centers the table on the page */
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(43, 27, 23, 0.05);
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse; /* Essential: gets rid of double borders */
+}
+
+/* Header Styling */
+.price-table thead {
+    background-color: #2b1b17;
+    color: #f7e7ce;
+}
+
+.price-table th {
+    padding: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+/* Cell Styling */
+.price-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #dcd1c4;
+    color: #55413c;
+}
+
+/* Hover Effect for Premium Feel */
+.price-table tr:hover {
+    background-color: #fdf6ec;
+}
+
+/* Caption styling */
+.price-table caption {
+    padding-bottom: 20px;
+    color: #8b5a2b;
+}
+       
+      
+        /* FOOTER */
+        footer {
+            background-color: #2b1b17; 
+            color: #f7e7ce;            
+            padding: 25px 10%;
+            position: fixed; 
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;            
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            color: #dcd1c4;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: #9c8e8a;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 0; padding-bottom: 0; }
+            .navbar {
+                position: relative; 
+                height: auto; 
+                padding: 20px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .navbar-links {
+                margin: 0;
+                gap: 20px;
+            }
+            .search-form { width: 100%; }
+            .search-input { flex-grow: 1; }
+            footer { position: relative; padding: 30px 5%; }
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <img src="Logo.png" alt="Janak" class="navbar-logo">
+        <div class="navbar-links">  
+            <a href="about.html">ABOUT</a>
+            
+            <a href="signin.html">SIGN IN</a>
+            <a href="signup.html">SIGN UP</a>
+        </div>
+        <form action="/search" method="get" class="search-form">
+            <input type="text" name="query" placeholder="Search items..." required class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </nav>
+<div class="table-container">
+    <table class="price-table">
+        <caption><h3>OUR PRICES</h3></caption>
+        <thead>
+            <tr>
+                <th>Items</th>
+                <th>Price/kg</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Rice</td>
+                <td>₹80</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Potato</td>
+                <td>₹25</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Ginger</td>
+                <td>₹160</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Tomato</td>
+                <td>₹40</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Mango</td>
+                <td>₹70</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Litchi</td>
+                <td>NA</td>
+                <td>NA</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+     <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Janak Foods</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 Janak Foods. All rights reserved.</div>
+        </div>
+    </footer>
+    
+</body>
+</html>

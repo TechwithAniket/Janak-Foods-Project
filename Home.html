@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janak Foods</title>
+    <style>
+        /* BASE STYLES & TYPOGRAPHY */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdf6ec; /* Warm, premium light cream background */
+            color: #2b1b17;
+            padding-top: 75px; 
+            padding-bottom: 80px; 
+        }
+
+        /* PREMIUM NAVBAR */
+        .navbar {
+            position: fixed;
+            background-color: #f7e7ce; /* Matches the warm header style */
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 75px;
+            padding: 0 10%;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-left: 40px;
+            margin-right: auto;
+        }
+
+        .navbar-links a {
+            color: #2b1b17;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .navbar-links a:hover {
+            color: #8b5a2b;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 220px;
+            height: 38px;
+            padding: 0 15px;
+            border-radius: 20px 0 0 20px;
+            border: 1px solid #dcd1c4;
+            border-right: none;
+            background-color: #fff;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .search-button {
+            height: 38px;
+            padding: 0 20px;
+            border-radius: 0 20px 20px 0;
+            border: 1px solid #dcd1c4;
+            background-color: #2b1b17;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: background 0.2s;
+        }
+
+        .search-button:hover {
+            background-color: #4a322c;
+        }
+
+        /* HERO SECTION (Matches Preview Visual Flow) */
+        .hero-section {
+            background-color: #f7e7ce; /* Keeps the upper section continuous */
+            padding: 80px 10%;
+        }
+
+        .hero-container {
+            display: flex;          
+            align-items: center;    
+            justify-content: space-between; 
+            gap: 60px;              
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            flex: 1.2; 
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            color: #2b1b17;
+            letter-spacing: -1px;
+        }
+
+        .hero-text h2 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #8b5a2b;
+            margin: 0 0 20px 0;
+        }
+
+        .hero-text p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #55413c;
+            margin: 0;
+        }
+
+        .hero-image {
+            flex: 0.8;
+            display: flex;
+            justify-content: center; 
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+        }
+
+        /* FEATURES GRID SECTION */
+        .features-section {
+            padding: 80px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 40px;                             
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 40px 30px;
+            background-color: #fff;                
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(43, 27, 23, 0.04); 
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(43, 27, 23, 0.08);
+        }
+
+        .feature-card svg {
+            width: 56px;
+            height: 56px;
+            fill: #8b5a2b; 
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin: 0 0 12px 0;
+            color: #2b1b17;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #6e5d59;
+            margin: 0;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #2b1b17; 
+            color: #f7e7ce;            
+            padding: 25px 10%;
+            position: fixed; 
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;            
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            color: #dcd1c4;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: #9c8e8a;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 0; padding-bottom: 0; }
+            .navbar {
+                position: relative; 
+                height: auto; 
+                padding: 20px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .navbar-links {
+                margin: 0;
+                gap: 20px;
+            }
+            .search-form { width: 100%; }
+            .search-input { flex-grow: 1; }
+            footer { position: relative; padding: 30px 5%; }
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <img src="Logo.png" alt="Janak" class="navbar-logo">
+        <div class="navbar-links">  
+            <a href="about.html">ABOUT</a>
+            
+            <a href="signin.html">SIGN IN</a>
+            <a href="signup.html">SIGN UP</a>
+        </div>
+        <form action="/search" method="get" class="search-form">
+            <input type="text" name="query" placeholder="Search items..." required class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text">
+                <h1>GROCERY STORE</h1>
+                <h2>Order Online</h2>
+                <p>A welcoming community hub offering fresh, locally sourced produce and daily essentials. We pride ourselves on a warm atmosphere, neatly organized aisles, and exceptional customer service to make every shopping trip convenient and delightful.</p>
+            </div>
+            <div class="hero-image">
+                <img src="Logo.png" alt="Janak Foods Logo">
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="features-grid">
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M17 8C14.24 8 12.06 9.88 11.22 12.44C10.5 12.16 9.74 12 8.93 12C5.66 12 3 14.66 3 17.93C3 21.2 5.66 23.86 8.93 23.86H17C20.86 23.86 24 20.72 24 16.86C24 13 20.86 8 17 8M17 21.86H8.93C6.77 21.86 5 20.09 5 17.93C5 15.77 6.77 14 8.93 14C9.72 14 10.47 14.24 11.1 14.69L12.1 15.4L12.72 14.41C13.43 13.27 14.66 12.55 16.03 12.55C18.43 12.55 20.38 14.5 20.38 16.9C20.38 19.64 18.86 21.86 17 21.86M12 2C9.24 2 7 4.24 7 7H9C9 5.34 10.34 4 12 4S15 5.34 15 7H17C17 4.24 14.76 2 12 2Z"/></svg>
+                <h3>Locally Sourced</h3>
+                <p>Daily fresh picks straight from local farms to your kitchen.
+                    <a href="products.html">Check Products here</a>
+                </p>
+            </div>
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M20 8H17V4H3C1.89 4 1 4.89 1 6V17H3C3 18.66 4.34 20 6 20S9 18.66 9 17H15C15 18.66 16.34 20 18 20S21 18.66 21 17H23V12L20 8M6 18.5C5.17 18.5 4.5 17.83 4.5 17S5.17 15.5 6 15.5 7.5 16.17 7.5 17 6.83 18.5 6 18.5M18 18.5C17.17 18.5 16.5 17.83 16.5 17S17.17 15.5 18 15.5 19.5 16.17 19.5 17 18.83 18.5 18 18.5M15 15H9C9 13.9 8.1 13 7 13C5.9 13 5 13.9 5 15H3V6H15V15M21.5 11.5H17V9.5H19.5L21.5 11.5Z"/></svg>
+                <h3>Express Delivery</h3>
+                <p>Get your groceries delivered to your doorstep within hours.</p>
+                <a href="delivery.html">Check Delivery details here</a>
+            </div>
+            <div class="feature-card">
+                <svg viewBox="0 0 24 24"><path d="M21.41 11.58L12.42 2.58C12.05 2.22 11.55 2 11 2H4C2.9 2 2 2.9 2 4V11C2 11.55 2.22 12.05 2.59 12.42L11.59 21.42C11.95 21.78 12.45 22 13 22C13.55 22 14.05 21.78 14.41 21.41L21.41 14.41C21.78 14.05 22 13.55 22 13C22 12.45 21.78 11.95 21.41 11.58M13 20L4 11V4H11L20 13L13 20M6.5 5C7.33 5 8 5.67 8 6.5C8 7.33 7.33 8 6.5 8C5.67 8 5 7.33 5 6.5C5 5.67 5.67 5 6.5 5Z"/></svg>
+                <h3>Best Prices</h3>
+                <p>Affordable everyday essentials without compromising quality.</p>
+                <a href="prices.html">Check Prices here</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Janak Foods</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 Janak Foods. All rights reserved.</div>
+        </div>
+    </footer>
+
+    <script>
+        // index.html script
+document.querySelector('.search-form').addEventListener('submit', function(e) {
+    e.preventDefault(); // Stop the page from reloading
+    const query = document.querySelector('.search-input').value;
+    
+    if (query.trim() === "") {
+        alert("Please enter a keyword to search.");
+    } else {
+        alert("Simulating search results for: " + query);
+        // Here you could later add logic to filter products
+    }
+});
+    </script>
+
+</body>
+</html>

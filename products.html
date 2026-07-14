@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Janak Foods</title>
+    <style>
+        /* BASE STYLES & TYPOGRAPHY */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdf6ec; /* Warm, premium light cream background */
+            color: #2b1b17;
+            padding-top: 75px; 
+            padding-bottom: 80px; 
+        }
+
+        /* PREMIUM NAVBAR */
+        .navbar {
+            position: fixed;
+            background-color: #f7e7ce; /* Matches the warm header style */
+            left: 0;
+            top: 0;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 75px;
+            padding: 0 10%;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+            z-index: 1000;
+        }
+
+        .navbar-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .navbar-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-left: 40px;
+            margin-right: auto;
+        }
+
+        .navbar-links a {
+            color: #2b1b17;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .navbar-links a:hover {
+            color: #8b5a2b;
+        }
+
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            width: 220px;
+            height: 38px;
+            padding: 0 15px;
+            border-radius: 20px 0 0 20px;
+            border: 1px solid #dcd1c4;
+            border-right: none;
+            background-color: #fff;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .search-button {
+            height: 38px;
+            padding: 0 20px;
+            border-radius: 0 20px 20px 0;
+            border: 1px solid #dcd1c4;
+            background-color: #2b1b17;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+            box-sizing: border-box;
+            transition: background 0.2s;
+        }
+
+        .search-button:hover {
+            background-color: #4a322c;
+        }
+
+       
+        
+        .heading{
+            padding-top: 0px;
+        }
+
+        .hero {
+            padding: 0 10%;
+            margin-bottom: 30px;
+        }
+
+        .hero h2 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8b5a2b;
+            margin-bottom: 5px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            font-weight: 800;
+            margin-top: 0;
+            letter-spacing: -0.5px;
+        }
+
+         .section-img {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+            padding: 0 10% 40px 10%;
+            box-sizing: border-box;
+        }
+
+
+        .image {
+            width: 320px;
+            height: auto;
+            max-height: 280px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(43, 27, 23, 0.08);
+        }
+
+        .crop, .community {
+            flex: 1;
+        }
+
+        .crop h6 {
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin: 0 0 10px 0;
+            color: #8b5a2b;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .crop p, .community p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #55413c;
+            margin: 0;
+        }
+
+        .community h2 {
+            font-size: 20px;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        info-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .text-icon {
+            width: 28px;
+            height: 28px;
+            fill: #8b5a2b;
+        }
+
+        /* FEATURES GRID */
+        .Newfeauters {
+            padding: 40px 10%;
+        }
+
+        /* FEATURES GRID */
+        .Newfeauters {
+            padding: 40px 10%;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .features-cards {
+            background-color: #fff;
+            padding: 35px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(43, 27, 23, 0.04);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .features-cards:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(43, 27, 23, 0.08);
+        }
+
+        .features-cards svg {
+            width: 60px;
+            height: 60px;
+            fill: #8b5a2b;
+            margin-bottom: 20px;
+        }
+
+        .features-cards h2 {
+            font-size: 20px;
+            margin: 0 0 12px 0;
+            font-weight: 700;
+        }
+
+        .features-cards p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #6e5d59;
+            margin: 0 0 20px 0;
+            flex-grow: 1; /* Keeps description area balanced */
+        }
+
+        /* PREMIUM BUTTON STYLING */
+        .click, .Mybutton, .viewboxes {
+            background-color: #8b5a2b;
+            color: #fff;
+            border: none;
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 80%;
+        }
+
+        .click:hover, .Mybutton:hover, .viewboxes:hover {
+            background-color: #2b1b17;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #2b1b17; 
+            color: #f7e7ce;            
+            padding: 25px 10%;
+            position: fixed; 
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 1000;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;            
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            color: #dcd1c4;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        .footer-copy {
+            font-size: 13px;
+            color: #9c8e8a;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body { padding-top: 0; padding-bottom: 0; }
+            .navbar {
+                position: relative; 
+                height: auto; 
+                padding: 20px 5%;
+                flex-direction: column;
+                gap: 15px;
+            }
+            .navbar-links {
+                margin: 0;
+                gap: 20px;
+            }
+            .search-form { width: 100%; }
+            .search-input { flex-grow: 1; }
+            footer { position: relative; padding: 30px 5%; }
+            .footer-content {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <img src="Logo.png" alt="Janak" class="navbar-logo">
+        <div class="navbar-links">  
+            <a href="about.html">ABOUT</a>
+           
+            <a href="signin.html">SIGN IN</a>
+            <a href="signup.html">SIGN UP</a>
+        </div>
+        <form action="/search" method="get" class="search-form">
+            <input type="text" name="query" placeholder="Search items..." required class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </nav>
+
+    <div class="hero">
+        <span><h2>PREMIUM SELECTION</h2>
+        <h1 class="heading">LOCALLY SOURCE PRODUCED</h1></span>
+        </div>
+
+
+        <section class="section-img">
+            <img src="vegetable.png" alt="vegetable"  class="image">
+            <div class="crop">
+                
+                 <div class="info-header"></div>
+                <!--an Inline Leaf Accent Icon -->
+                <svg class="text-icon" viewBox="0 0 24 24"><path d="M17 8C14.24 8 12.06 9.88 11.22 12.44C10.5 12.16 9.74 12 8.93 12C5.66 12 3 14.66 3 17.93C3 21.2 5.66 23.86 8.93 23.86H17C20.86 23.86 24 20.72 24 16.86C24 13 20.86 8 17 8z"/></svg>
+                <h6>OUR CROP PHISLOPHY</h6>
+                <p>Janak Foods is committed to supporting regional farms. We orchestrate direct partnerships with our local growers to prioritize environmental health, absolute freshness, and agricultural sustainability.</p>
+            </div>
+            <div class="community">
+                <div class="info-header">
+                <!-- Clean Inline Handshake/Community Accent Icon -->
+                <svg class="text-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm0-4h-2V7h2v8z"/></svg>
+                <h2>Community</h2>
+                </div>
+                <p>We make it our mission to ensure that our work grows hand-in-hand with our local suppliers and the neighborhood community we serve.</p>
+            </div>
+        </section>
+
+        <section class="Newfeauters">
+            <div class="feature-grid">
+          <div class="features-cards"> 
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.53c-.26-.81-1-1.4-1.9-1.4h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>   
+<h2>Seasonal Harvest</h2>
+
+<p>Daily picks fresh from local farms straight to our shelves.</p>
+<button class="click">Explore Fruits</button>            
+</div>
+<div class="features-cards">
+    <svg viewBox="0 0 24 24"><path d="M12 2s1.5 3.5 0 5.5c-1.5-2 0-5.5 0-5.5zM8.5 3.5S11 6 10 8c-1-2-1.5-4.5-1.5-4.5zM15.5 3.5S13 6 14 8c1-2 1.5-4.5 1.5-4.5zM12 8c-3.31 0-6 2.69-6 6 0 3.42 4.5 7.5 5.25 8.16.42.37 1.08.37 1.5 0 .75-.66 5.25-4.74 5.25-8.16 0-3.31-2.69-6-6-6z"/></svg>
+<h2>Organic Vegetables</h2>
+<p>Grown with care, completely free from harmful pesticides.</p>
+<button class="Mybutton">Shop Veggies</button>
+</div>
+
+<div class="features-cards">
+    <svg viewBox="0 0 24 24"><path d="M22 4.93L20.07 3H3.93L2 4.93V19c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4.93zm-8 2.57h-4V6h4v1.5zM5.41 5h13.17l1 1H4.41l1-1zM20 19H4V8h16v11z"/></svg>
+    <h2>PRE-PACKAGED SELECTIONS</h2>
+    <p>Curated grocery boxes designed for your ultimate convenience.</p>
+    <button class="viewboxes">View Boxes</button>
+</div>
+
+</div>
+        </section>
+    
+    
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Janak Foods</div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Support</a>
+            </div>
+            <div class="footer-copy">&copy; 2026 Janak Foods. All rights reserved.</div>
+        </div>
+    </footer>
+
+</body>
+</html>
