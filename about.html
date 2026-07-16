@@ -29,6 +29,19 @@
         .media-container { text-align: center; margin: 40px 0; }
         .video { width: 80%; max-width: 600px; border-radius: 12px; }
 
+        .video-container {
+    width: 100%; /* Take up the full width of its parent */
+    max-width: 800px; /* Optional: keep it from getting too huge on big screens */
+    margin: 20px auto; /* Centers the video on the page */
+}
+
+.video-container iframe {
+    width: 100%; /* Force the iframe to fill the container */
+    aspect-ratio: 16 / 9; /* The magic: automatically keeps the 16:9 shape */
+    border-radius: 12px; /* A nice modern rounded look */
+    display: block;
+}
+
         /* Geolocation Styling */
         #demo1 { font-weight: bold; color: #8b5a2b; }
         .click { background: #2b1b17; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
@@ -79,7 +92,7 @@
         <h2>Promotional Highlights</h2>
         <audio controls><source src="https://res.cloudinary.com/cwhjsy9o/video/upload/v1784128107/WhatsApp_Audio_2026-07-13_at_1.47.34_PM_ajpnor.mp3"></audio>
         <br><br>
-       
+       <div class="video-container">
         <iframe 
     width="560" 
     height="315" 
@@ -89,6 +102,7 @@
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
     allowfullscreen>
 </iframe>
+</div>
     </div>
 
     <!-- GEOLOCATION SECTION -->
